@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('Build Souce') {
             steps {
-                sh "${env.M2}/mvn clean package" 
+                def mvnHome = tool name: 'maven', type: 'maven'
+                sh "${mvnHome}/bin/mvn clean package" 
             }
         }
     }
