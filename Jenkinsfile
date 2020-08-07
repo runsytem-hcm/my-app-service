@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build Souce') {
             steps {
-                sh 'mvn clean package' 
+                sh "${env.M2}/mvn clean package" 
             }
         }
     }
