@@ -1,9 +1,9 @@
 pipeline {
     agent any 
     stages {
-        stage('Stage 1') {
+        stage('Build Souce') {
             steps {
-                echo 'Hello world!' 
+                echo 'mvn clean package' 
             }
         }
     }
