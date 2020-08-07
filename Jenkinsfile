@@ -1,11 +1,13 @@
                 
 pipeline {
     agent any 
-            def mvnHome = tool name: 'maven', type: 'maven'
+  environment{
+    PATH = "/opt/apache-maven-3.6.3/bin:$PATH"
+  }
     stages {
         stage('Build Souce') {
             steps {
-                sh "${mvnHome}/bin/mvn clean package" 
+                sh "mvn clean package" 
             }
         }
     }
