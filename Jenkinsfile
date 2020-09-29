@@ -1,24 +1,23 @@
 def GIT_BRANCH='master'           
 pipeline {
     agent any 
-    environment{
-     PATH = "/opt/apache-maven-3.6.3/bin:$PATH"
+    tools {
+      maven 'maven-3'
     }
     stages {
         stage('Checkout Source Code') {
             steps {
                 echo "====== Starting CHECKOUT SOURCE CODE ======"
-				  script {
-					  GIT_BRANCH = getGitBranch()
-				  }
-				  echo "Checkout branch: ${GIT_BRANCH}"
+	        script {
+		   GIT_BRANCH = getGitBranch()
+		}
+		echo "Checkout branch: ${GIT_BRANCH}"
                 checkout scm
           }
         }
-	stage('Maven Version') {
+        stage('Build Souce') {
             steps {
-              echo "====== Maven Version ======"
-		sh script: 'mvn clean package'
+                sh script: 'mvn clean package'
             }
         }
     }
