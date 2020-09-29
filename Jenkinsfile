@@ -6,7 +6,7 @@ pipeline {
         BUILD_NAME = readMavenPom().getArtifactId()
         BUILD_VERSION = readMavenPom().getVersion()
         IMAGE = "192.168.195.128/harbor/projects/cp/dev/${BUILD_NAME}:${BUILD_VERSION}"
-        registry = "http://192.168.195.128/harbor/projects/cp"
+        registry = "http://192.168.195.128"
         registryCredential = 'registry-cred'
     }
     stages {
