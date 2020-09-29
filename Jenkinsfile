@@ -31,6 +31,13 @@ pipeline {
                 echo "BUILD_NAME: ${BUILD_NAME}"
                 echo "BUILD_VERSION: ${BUILD_VERSION}"
                 echo "IMAGE: ${IMAGE}"
+                script {
+                    docker.withRegistry(registry, registryCredential) {
+                        def dockerImage = docker.build("${env.IMAGE}")
+                        println "Push dockerImage: " + dockerImage
+                        dockerImage.push()
+                    }
+                }
             }
         }
     }
