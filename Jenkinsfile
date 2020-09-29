@@ -15,14 +15,8 @@ pipeline {
         }
 	stage('Maven Version') {
             steps {
-              echo "====== Maven Version ======"
-              sh "${env.M2_HOME}/mvn -version"
-            }
-        }
-        stage('Build Souce') {
-            steps {
-              echo "====== Starting BUILD SOURCE ======"
-              sh "${env.M2_HOME}/mvn clean package"
+              echo "====== Maven Version ======: ${env.M2_HOME}"
+
             }
         }
     }
