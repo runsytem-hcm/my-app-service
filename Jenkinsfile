@@ -1,9 +1,6 @@
 def GIT_BRANCH='master'           
 pipeline {
     agent any 
-    tools {
-      maven 'maven-3.6.3'
-    }
     stages {
         stage('Checkout Source Code') {
             steps {
@@ -17,7 +14,7 @@ pipeline {
         }
         stage('Build Souce') {
             steps {
-                sh script: 'mvn clean package'
+		sh "${M2_HOME}/mvn clean package"
             }
         }
     }
