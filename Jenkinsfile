@@ -16,7 +16,7 @@ pipeline {
 	stage('Maven Version') {
             steps {
               echo "====== Maven Version ======: ${env.M2_HOME}"
-		sh "${env.M2_HOME}/mvn clean"
+		sh "mvn clean"
             }
         }
     }
