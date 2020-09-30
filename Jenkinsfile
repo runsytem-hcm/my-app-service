@@ -21,8 +21,8 @@ pipeline {
           }
         }
         stage('Build Souce') {
-		echo "====== Starting Build Souce ======${M2_HOME}"
             steps {
+		echo "====== Starting Build Souce ======${M2_HOME}"
 		sh "${M2_HOME}/mvn clean package"
             }
         }
