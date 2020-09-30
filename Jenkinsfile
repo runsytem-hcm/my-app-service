@@ -1,9 +1,6 @@
 def GIT_BRANCH='master'           
 pipeline {
     agent any
-    tools {
-      maven 'maven-3.6.3'
-    }
     environment {
         // Docker image versioning
         BUILD_NAME = readMavenPom().getArtifactId()
@@ -24,6 +21,7 @@ pipeline {
           }
         }
         stage('Build Souce') {
+		echo "====== Starting Build Souce ======${M2_HOME}"
             steps {
 		sh "${M2_HOME}/mvn clean package"
             }
