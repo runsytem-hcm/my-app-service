@@ -1,6 +1,9 @@
 def GIT_BRANCH='master'           
 pipeline {
     agent any
+    tools {
+      maven 'maven-3.6.3'
+    }
     environment {
         // Docker image versioning
         BUILD_NAME = readMavenPom().getArtifactId()
