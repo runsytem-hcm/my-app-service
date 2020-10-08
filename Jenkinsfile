@@ -8,8 +8,8 @@ pipeline {
         // Docker image versioning
         BUILD_NAME = readMavenPom().getArtifactId()
         BUILD_VERSION = readMavenPom().getVersion()
-        IMAGE = "192.168.214.141/cp/${BUILD_NAME}:${BUILD_VERSION}"
-        registry = "https://192.168.214.141"
+        IMAGE = "192.168.214.140/cp/${BUILD_NAME}:${BUILD_VERSION}"
+        registry = "https://192.168.214.140"
         registryCredential = 'registry-cred'
     }
     stages {
