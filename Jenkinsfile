@@ -2,7 +2,7 @@ def GIT_BRANCH='master'
 pipeline {
     agent any
     triggers {
-        pollSCM('H/2 * * * *')
+        pollSCM('* * * * *')
     }
     tools {
       maven 'maven-3.6.3'
