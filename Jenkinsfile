@@ -53,4 +53,3 @@ pipeline {
 def getGitBranch(){
 	return scm.branches[0].name
 }
-
