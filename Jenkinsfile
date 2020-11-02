@@ -50,11 +50,12 @@ pipeline {
         }
         stage('Deploy in k8s Cluster') {
             steps {
+		    script {
 		kubernetesDeploy(
 		    configs: 'my-app.yaml',
-		    kubeconfigId: 'kubernetes_cluster_config',
-		    enableConfigSubstitution: true
-		)
+		    kubeconfigId: 'kubernetes_cluster_config'
+		 )
+		    }
             }
         }
     }
