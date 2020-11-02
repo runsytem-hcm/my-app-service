@@ -48,6 +48,15 @@ pipeline {
                 }
             }
         }
+        stage('Deploy in k8s Cluster') {
+            steps {
+		kubernetesDeploy(
+		    configs: 'my-app.yml',
+		    kubeconfigId: 'kubernetes_cluster_config',
+		    enableConfigSubstitution: true
+		)
+            }
+        }
     }
 }
 def getGitBranch(){
